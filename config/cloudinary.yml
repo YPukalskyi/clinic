@@ -1,0 +1,11 @@
+development:
+  cloud_name: "dmavrfbs8"
+  api_key: "725639435655153"
+  api_secret: "S0iMbsamaY8tPFKFIrxJrldUSGw"
+  secure: true
+
+production:
+  cloud_name: "dmavrfbs8"
+  api_key: "725639435655153"
+  api_secret: "S0iMbsamaY8tPFKFIrxJrldUSGw"
+  secure: true

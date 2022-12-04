@@ -1,0 +1,13 @@
+.container
+  %h3 Write a recommendation
+  = form_for ([:doctor, @appointment]) do |f|
+    .row.mt-5
+      .col-5.offset-3
+        .card.border-0
+          .col
+            = f.label :recommendation, class: "form-label"
+          .col
+            = f.text_area :recommendation, class: 'form-control', size: '20x6'
+          .col
+            = f.submit 'Save', class: 'btn btn-primary mt-2'
+    = f.hidden_field(:status, value: 'inactive')

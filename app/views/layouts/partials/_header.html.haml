@@ -1,0 +1,21 @@
+%body
+  %header.p-3.mb-3.border-bottom
+    .container-fluid
+      .d-flex.flex-wrap.align-items-center.justify-content-between
+        .d-flex.align-items-center
+          - if current_user.is_doctor?
+            = link_to 'Doctor profile', doctor_appointments_path, class: "nav-link link-dark"
+          .dropdown.text-end
+            %a#dropdownUser1.d-block.link-dark.text-decoration-none.dropdown-toggle{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", href: "#"}
+              Patient profile
+            %ul.dropdown-menu.text-small{"aria-labelledby" => "dropdownUser1", style: ""}
+              %li= link_to 'Appointments', patient_appointments_path, class: "dropdown-item nav-link link-dark"
+              %li= link_to 'Doctors', doctors_path, class: "dropdown-item nav-link link-dark"
+        .dropdown.text-end.justify-content-end
+          %a#dropdownUser1.d-block.link-dark.text-decoration-none.dropdown-toggle{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", href: "#"}
+            = render 'components/users/profile_avatar'
+          %ul.dropdown-menu.text-small{"aria-labelledby" => "dropdownUser1", style: ""}
+            = link_to 'Edit user', edit_user_registration_path, class: "dropdown-item"
+            %li
+              %hr.dropdown-divider/
+            = link_to "Sign out", destroy_user_session_path, method: 'delete', class: "dropdown-item"

@@ -1,0 +1,4 @@
+- if current_user.avatar&.present?
+  = cl_image_tag(current_user.avatar&.key, width: 50, height: 50, radius: 'max', border: '1px_solid_black')
+- else
+  = image_tag('avatars/blank_avatar.jpg', size: 50, class: 'rounded-circle')

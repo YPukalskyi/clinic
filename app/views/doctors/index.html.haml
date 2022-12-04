@@ -1,0 +1,19 @@
+.container
+  .row.g-3
+    %h1 Doctors
+    - if @doctors.blank?
+      %p.text-secondary.text-center No doctors
+    - else
+      - @doctors.each do |doctor|
+        .col-3
+          .card.h-100
+            = render 'components/users/card_avatar', user: doctor.user
+            .card-body
+              %h5.card-title
+                Doctor: #{doctor.presenter.full_name}
+            %ul.list-group.list-group-flush.h-100.border-bottom-0
+              - doctor.categories.each do |category|
+                %li.list-group-item
+                  Category: #{category.name}
+            .card-body
+              = link_to 'Appointment', new_patient_appointment_path(doctor_id: doctor.id), class: 'btn btn-outline-primary w-100'
