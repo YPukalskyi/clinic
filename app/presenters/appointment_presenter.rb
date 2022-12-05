@@ -4,6 +4,6 @@ class AppointmentPresenter < BasePresenter
   end
 
   def period
-    "#{@record.started_at&.strftime("%Y.%m.%d %H:%M")} - #{@record.ended_at&.strftime("%Y.%m.%d %H:%M")}"
+    "#{@record.started_at.strftime('%Y.%m.%d %H:%M')} - #{@record.ended_at.strftime('%Y.%m.%d %H:%M')}"
   end
 end

@@ -1,0 +1,6 @@
+- return if record.errors.blank?
+
+.row
+  .col-12
+    .alert.alert-danger
+      = raw record.errors.full_messages.join('<br />')

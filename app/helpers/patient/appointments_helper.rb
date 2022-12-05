@@ -1,2 +1,0 @@
-module Patient::AppointmentsHelper
-end

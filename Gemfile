@@ -8,9 +8,11 @@ gem 'bootstrap'
 gem 'cancancan'
 gem 'cloudinary'
 gem 'devise'
+gem 'shoulda-matchers'
 gem 'haml'
 gem 'faker'
 gem "image_processing", ">= 1.2"
+gem 'pg', '~> 1.1'
 
 gem 'rails', '~> 6.1.3', '>= 6.1.3.1'
 gem 'sqlite3', '~> 1.4'
@@ -35,6 +37,7 @@ group :development do
 end
 
 group :test do
+  gem 'rails-controller-testing'
   gem 'capybara', '>= 3.26'
   gem 'selenium-webdriver'
   gem 'webdrivers'

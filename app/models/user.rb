@@ -13,11 +13,11 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6, maximum: 12}, on: :create
   validates :phone_number, presence: true, uniqueness: true
 
-  def is_doctor?
+  def doctor?
     doctor.present?
   end
 
-  def is_admin?
+  def admin?
     admin.present?
   end
 

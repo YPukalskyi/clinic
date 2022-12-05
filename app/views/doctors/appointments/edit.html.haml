@@ -1,0 +1,15 @@
+%h3 Write a recommendation
+
+= render 'components/errors', record: @appointment
+
+.row
+  .col-4.offset-4
+    .card
+      .card-body
+        = form_for [:doctors, @appointment] do |f|
+          .row.g-3
+            .col-12
+              = f.label :recommendation, class: 'form-label'
+              = f.text_area :recommendation, class: 'form-control', size: '20x6'
+            .col-12
+              = f.submit 'Save', class: 'btn btn-primary'

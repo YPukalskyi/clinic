@@ -1,0 +1,25 @@
+.table-responsive
+  %h3 Doctor appointments
+  - if @appointments.blank?
+    %p.text-secondary.text-center No appointments
+
+  - else
+    %table.table.table-striped.table-hover
+      %thead
+        %tr
+          %th{ scope: :col } Patients
+          %th{ scope: :col } Statuses
+          %th{ scope: :col } Recommendations
+          %th{ scope: :col } Appointments periods
+          %th{ scope: :col } Actions
+      %tbody
+        - @appointments.each do |appointment|
+          %tr
+            %td
+              = render 'components/users/profile_avatar', user: appointment.doctor.user
+              = appointment.user.presenter.full_name
+            %td= render 'components/appointments/status', appointment: appointment
+            %td{ title: appointment.recommendation.to_s }
+              = truncate(appointment.recommendation, length: 200)
+            %td= appointment.presenter.period
+            %td= render 'actions', appointment: appointment

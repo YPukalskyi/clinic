@@ -1,6 +1,7 @@
 FactoryBot.define do
   factory :doctor do
-    association :user, factory: :user
-    association :categories, factory: :category, strategy: :build
+    categories { [association(:category)] }
+
+    association :user
   end
 end

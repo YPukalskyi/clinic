@@ -1,15 +1,15 @@
 Rails.application.routes.draw do
-  devise_for :users, :controllers => { :registrations => "registrations" }
+  ActiveAdmin.routes(self)
+  devise_for :users, controllers: { registrations: "registrations" }
 
   root 'dashboard#index'
 
-  resources :doctors, only: %i[index]
-
-  namespace :patient do
-    resources :appointments, only: %i[index new create show edit update]
+  namespace :patients do
+    resources :doctors, only: %i[index]
+    resources :appointments, only: %i[index new create edit update]
   end
 
-  namespace :doctor do
-    resources :appointments, only: %i[index show edit update]
+  namespace :doctors do
+    resources :appointments, only: %i[index edit update]
   end
 end
